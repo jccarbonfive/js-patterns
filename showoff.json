@@ -1,0 +1,14 @@
+{
+  "name" : "JavaScript Patterns",
+  "description" : "Review of O'Reilly's JavaScript Patterns by Stoyan Stefanov",
+  "sections": [
+    { "section" : "chapter-1" },
+    { "section" : "chapter-2" },
+    { "section" : "chapter-3" },
+    { "section" : "chapter-4" },
+    { "section" : "chapter-5" },
+    { "section" : "chapter-6" },
+    { "section" : "chapter-7" },
+    { "section" : "chapter-8" }
+  ]
+}
