@@ -1,8 +1,8 @@
-!SLIDE
+!SLIDE center
 
 # JavaScript Patterns
 
-![foo](cover.jpg)
+![cover](cover.jpg)
 
 !SLIDE bullets incremental
 
@@ -18,7 +18,7 @@
 
 !SLIDE bullets incremental
 
-# JS Basics
+# Basics
 
 * Object-oriented
 * First-class functions
@@ -30,7 +30,7 @@
 
 !SLIDE bullets incremental
 
-# JS Basics
+# Cont'd
 
 * Native vs. Host objects
 * No classes

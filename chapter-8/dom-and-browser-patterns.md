@@ -1,4 +1,4 @@
-!SLIDE
+!SLIDE small
 
 # DOM Access
 
@@ -7,7 +7,7 @@
 * Assign DOM references to local variables
 * Cache the #length when iterating over HTML collections
 
-!SLIDE
+!SLIDE small
 
 # Event Delegation
 

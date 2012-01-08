@@ -1,6 +1,6 @@
-!SLIDE
+!SLIDE smaller
 
-# Classic GoF Design Patterns
+# GoF Design Patterns
 
 * Singleton
 * Iterator

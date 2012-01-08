@@ -1,6 +1,6 @@
 !SLIDE
 
-# Use Literal Notations
+# Literal Notations
 
     @@@ JavaScript
     var obj = {};
@@ -14,7 +14,7 @@
 
 !SLIDE
 
-# Use Literal Notations
+# Cont'd
 
     @@@ JavaScript
     var string = 'hello';
@@ -44,18 +44,18 @@
       this.name = name;
     };
     var foo = new Person('foo');
-    alert(foo.name);
+    alert(foo.name);    // foo
 
     var bar = Person('bar');
-    alert(bar);
-    alert(window.name);
+    alert(bar);         // undefined
+    alert(window.name); // bar
 
 .notes - implicitly return a new object i.e., 'this'
  can return an object from a constructor function
 
 !SLIDE small execute
 
-# Make new Optional
+# Optional `new`
 
     @@@ JavaScript
     function Person (name) {
@@ -66,7 +66,7 @@
     }
 
     var foo = new Person('foo');
-    alert(JSON.stringify(foo));
+    alert(JSON.stringify(foo)); // {"name":"foo"}
 
     var bar = Person('bar');
-    alert(JSON.stringify(bar));
+    alert(JSON.stringify(bar)); // {"name":"bar"}

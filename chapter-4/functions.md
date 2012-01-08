@@ -1,9 +1,9 @@
-!SLIDE bullets
+!SLIDE bullets incremental
 
 # Functions
 
 * First class objects
-* Have attributes and methods
+* Can have attributes and methods
 * Provide local scope
 
 .notes - if, for, try don't introduce new scope
@@ -35,19 +35,19 @@
     }
 
     function bar () {
-      foo();
+      foo();  // local foo
 
       function foo() {
         alert('local foo');
       }
 
-      // baz(); undefined  is not a function
+      // baz(); undefined is not a function
 
       var baz = function () {
         alert('baz');
       }
 
-      baz();
+      baz(); // baz
     }
 
     bar();
@@ -59,11 +59,11 @@
 
     @@@ JavaScript
     (function () {
-      alert('immediate fn 1');
+      alert('immediate fn 1'); // immediate fn 1
     }());
 
     (function () {
-      alert('immediate fn 2');
+      alert('immediate fn 2'); // immediate fn 2
     })();
 
     (function (global) {
@@ -72,7 +72,7 @@
 
     var foo = new Person();
     foo.name = (function () { return 'foo'; }());
-    alert('foo.name = ' + foo.name);
+    alert('foo.name = ' + foo.name); // foo.name = foo
 
 .notes - function executed right after it's created
 - useful for providing a private scope
@@ -82,11 +82,13 @@
 # Memoization
 
     @@@ JavaScript
-    var fibonacci = function (n) {
-      if (fibonacci.cache[n]) {
-        return n;
+    var fibonacci = function fn (n) {
+      var cached = fn.cache[n];
+      if (cached) {
+        return cached;
       }
       // calculate fibonacci of n
+      // store it in fn.cache[n]
     };
     fibonacci.cache = {};
     fibonacci(4);

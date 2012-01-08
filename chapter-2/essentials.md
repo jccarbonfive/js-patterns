@@ -2,10 +2,7 @@
 
 # Essentials
 
-* Minimizing globals
-* Implied globals
-
-!SLIDE execute
+!SLIDE smaller execute
 
 # Globals
 
@@ -20,9 +17,9 @@
 
     foo();
 
-    alert('window.c = ' + window.c);
-    alert('window.d = ' + window.d);
-    alert('window.e = ' + window.e);
+    alert('window.c = ' + window.c); // window.c = 2
+    alert('window.d = ' + window.d); // window.d = undefined
+    alert('window.e = ' + window.e); // window.e = 0
 
 !SLIDE
 
@@ -50,16 +47,16 @@
     x = 'global'
 
     function foo () {
-      alert('x = ' + x);
+      alert('x = ' + x); // x = undefined
       var x = 'local';
-      alert('x = ' + x);
+      alert('x = ' + x); // x = local
     }
 
     foo();
 
 !SLIDE small execute
 
-# Avoid Implicit Typecasting
+# Implicit Typecasting
 
     @@@ JavaScript
     if (false == 0) {
@@ -80,29 +77,22 @@
 
 !SLIDE execute
 
-# Avoid eval
+# eval
 
     @@@ JavaScript
     var obj = {},
       property = 'name';
 
-    eval("obj." + property);
+    var name = eval("obj." + property);
 
-    var name = obj[property];
+    name = obj[property];
 
     var foo = new Function("alert('foo');")
-    foo();
-
-!SLIDE small bullets
-
-# Augmenting Built-in Prototypes
-
-* AKA Monkey-patching
-* First check if function exists
+    foo(); // 'foo'
 
 !SLIDE small execute
 
-# Native String Object Extension
+# Monkey Patching
 
     @@@ JavaScript
     if (! String.prototype.first) {
@@ -113,7 +103,7 @@
 
     var string = 'hello';
 
-    alert(string.first());
+    alert(string.first()); // 'h'
 
 !SLIDE small execute
 
@@ -127,7 +117,7 @@
       }
     }
 
-    alert(foo());
+    alert(foo());  // undefined
 
     function foo2 () {
       return {
@@ -135,7 +125,7 @@
       }
     }
 
-    alert(JSON.stringify(foo2()));
+    alert(JSON.stringify(foo2())); // {"name":"foo"}
 
 !SLIDE small bullets
 

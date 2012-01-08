@@ -1,4 +1,4 @@
-!SLIDE bullets
+!SLIDE bullets incremental
 
 # Inheritance
 
@@ -22,7 +22,7 @@
     Child.prototype = new Parent();
 
     var child = new Child();
-    child.hi();
+    child.hi(); // parent
 
 !SLIDE small execute
 
@@ -42,20 +42,20 @@
     };
 
     var child = Object.create(parent);
-    child.hi();
+    child.hi(); // parent
 
-!SLIDE bullets
+!SLIDE bullets incremental
 
 # Borrowing Methods
 
 * Function#apply
 * Function#call
 * First argument is the context i.e., 'this'
-* Differ in parameters, Array vs. single parameters
+* Differ in remaining parameters
 
-!SLIDE small execute
+!SLIDE smaller execute
 
-# Borrowing Methods
+# Cont'd
 
     @@@ JavaScript
     function foo () {
@@ -73,4 +73,4 @@
       name: 'baz'
     }
 
-    bar.hi.call(baz);
+    bar.hi.call(baz); // baz

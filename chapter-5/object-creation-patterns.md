@@ -10,11 +10,11 @@
 .notes - use namespace to reduce total number of globals and avoid polluting global namesapce
  ALL CAPS is a common convention
 
-!SLIDE bullets
+!SLIDE bullets incremental
 
 # Access Control
 
-* Every attribute and function is public
+* Every attribute and method is public
 * No public, private, or protected modifiers
 * Can use closures to simulate privacy
 
@@ -23,63 +23,61 @@
 # Private method
 
     @@@ JavaScript
-    function User () {
-      var name = 'foo';
+    function User (name) {
+      var greeting = 'hi';
       this.hi = function () {
-        alert(name);
+        alert(greeting + ' ' + name);
       };
     }
 
-    var user = new User()
-    user.hi();
-    alert(user.name);
+    var user = new User('foo')
+    user.hi();            // hi foo
+    alert(user.name);     // undefined
+    alert(user.greeting); // undefined
 
 .notes - watch returning objects from functions, would have to do a deep copy
   to prevent overwriting
 
-!SLIDE bullets
+!SLIDE bullets incremental
 
 # Module Pattern
 
-* Organizational pattrn
+* Organizational pattern
 * JavaScript has no packages/modules
 
 !SLIDE small execute
 
-# Module Pattern
+# Cont'd
 
     @@@ JavaScript
     MYAPP = {};
     MYAPP.Person = (function () {
       var name = 'foo';
-      var fn = function () {
-        this.name = name;
+      return function () {
         this.hi = function () {
-          alert(this.name);
+          alert(name);
         };
       };
-      return fn;
     }());
 
     var person = new MYAPP.Person();
-    person.hi();
+    person.hi(); // foo
 
 
 !SLIDE small execute
 
-# Module Pattern
+# Cont'd
 
     @@@ JavaScript
     MYAPP = {};
     (function (global) {
       var name = 'foo';
       global.MYAPP.Person = function () {
-        this.name = name;
         this.hi = function () {
-          alert(this.name);
+          alert(name);
         };
       };
     }(window));
 
     var person = new MYAPP.Person();
-    person.hi();
+    person.hi(); // foo
