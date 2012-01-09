@@ -20,7 +20,7 @@
 
 !SLIDE execute
 
-# Private method
+# Privileged Method
 
     @@@ JavaScript
     function User (name) {
@@ -37,6 +37,24 @@
 
 .notes - watch returning objects from functions, would have to do a deep copy
   to prevent overwriting
+
+!SLIDE execute
+
+# Cont'd
+
+    @@@ JavaScript
+    var obj = {
+      name: 'foo'
+    };
+
+    (function () {
+      var greeting = 'hi';
+      obj.hi = function () {
+        alert(greeting + ' ' + this.name);
+      };
+    }());
+
+    obj.hi();    // hi foo
 
 !SLIDE bullets incremental
 
@@ -81,3 +99,13 @@
 
     var person = new MYAPP.Person();
     person.hi(); // foo
+
+!SLIDE
+
+# Chaining Pattern
+
+    @@@ JavaScript
+    $("#menu")
+       .fadeIn('fast')
+       .addClass("active")
+       .css('marginRight', '10px');

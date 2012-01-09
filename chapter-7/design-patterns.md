@@ -1,4 +1,4 @@
-!SLIDE smaller
+!SLIDE bullets smaller incremental
 
 # GoF Design Patterns
 

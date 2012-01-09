@@ -16,7 +16,7 @@
     // function declaration
     function User () {}
 
-    // anonymous unnamed function
+    // anonymous unnamed functions
     var User = function () {}
     var user = {
       hi: function () {}
@@ -53,6 +53,25 @@
     bar();
 .notes - only function declarations are hoisted
 
+!SLIDE execute
+
+# Callback Function
+
+    @@@ JavaScript
+    function foo(callback) {
+      // do something
+      callback();
+    }
+
+    function bar () {
+      var baz = 'baz';
+      foo(function () {
+        alert(baz);
+      });
+    }
+
+    bar();
+
 !SLIDE execute small
 
 # Immediate Function
@@ -83,12 +102,11 @@
 
     @@@ JavaScript
     var fibonacci = function fn (n) {
-      var cached = fn.cache[n];
-      if (cached) {
-        return cached;
+      if (! fn.cache[n]) {
+        // calculate fibonacci of n
+        // store it in fn.cache[n]
       }
-      // calculate fibonacci of n
-      // store it in fn.cache[n]
+      return fn.cache[n];
     };
     fibonacci.cache = {};
     fibonacci(4);

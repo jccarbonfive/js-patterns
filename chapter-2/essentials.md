@@ -88,7 +88,7 @@
     name = obj[property];
 
     var foo = new Function("alert('foo');")
-    foo(); // 'foo'
+    foo(); // foo
 
 !SLIDE small execute
 
@@ -126,6 +126,16 @@
     }
 
     alert(JSON.stringify(foo2())); // {"name":"foo"}
+
+!SLIDE smaller execute
+
+# Cont'd
+
+    @@@ JavaScript
+    var array = [1, 2, 3, 4, 5];
+
+    for (var i = 0; i < array.length; i++) if (array[i] > 2)
+      alert(array[i]); // 3, 4, 5
 
 !SLIDE small bullets
 

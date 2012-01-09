@@ -64,8 +64,8 @@
     }
 
     var bar = {
-      hi: function () {
-        alert(this.name);
+      hi: function (greeting) {
+        alert(greeting + ' ' + this.name);
       }
     };
 
@@ -73,4 +73,31 @@
       name: 'baz'
     }
 
-    bar.hi.call(baz); // baz
+    bar.hi.apply(baz, ['yo']); // yo baz
+    bar.hi.call(baz, 'hi');    // hi baz
+
+!SLIDE smaller execute
+
+# Function Binding
+
+    @@@ JavaScript
+    var obj = {
+      name: 'foo',
+      hi: function () {
+        alert('hi ' + this.name);
+      }
+    };
+
+    function foo (callback) {
+      callback();
+    };
+
+    foo(obj.hi);            // hi
+
+    function bind (object, fn) {
+      return function () {
+        fn.apply(object, Array.prototype.slice.call(arguments));
+      }
+    }
+
+    foo(bind(obj, obj.hi)); // hi foo

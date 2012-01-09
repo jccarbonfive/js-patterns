@@ -1,27 +1,36 @@
-!SLIDE
+!SLIDE smaller
 
 # Literal Notations
 
     @@@ JavaScript
     var obj = {};
-    var obj = new Object();
+    var obj = new Object();  // obj.constructor === Object
+    var obj = new Object(1); // obj.constructor === Number
 
     var array = [];
-    var array = new Array();
+    var array = new Array();    // #length === 0
+    var array = new Array(3);   // #length === 3
+    var array = new Array(5.5); // RangeError: invalid array length
 
-    var regexp = /hello/i;
-    var regexp = new RegExp('hello', 'i');
+    var regexp = /\\/g;
+    var regexp = new RegExp("\\\\", 'g');
+    var regexp = /*hello*/; // SyntaxError: unexpected token ;
 
-!SLIDE
+!SLIDE smaller execute
 
 # Cont'd
 
     @@@ JavaScript
-    var string = 'hello';
-    var string = new String('hello');
+    var s = 'hello';
+    s.name = 'foo';
+    alert(s.name);        // undefined
 
-    var number = 3;
-    var number = new Number(3);
+    var s = new String('hello');
+    s.name = 'foo';
+    alert(s.name);       // foo
+
+    var n = 3;             // typeof n === 'number'
+    var n = new Number(3); // typeof n === 'object'
 
     var boolean = false;
     var boolean = new Boolean();
@@ -31,6 +40,8 @@
       name: 'MyCustomError',
       message: 'fail'
     };
+
+    var date = new Date(); // no literal constructor
 
 .notes - more concise, expressive, less error-prone, {} says objects are
   literals not something that needs to made from a recipe
