@@ -114,7 +114,7 @@
       return
       {
         name: 'foo'
-      }
+      };
     }
 
     alert(foo());  // undefined
@@ -122,7 +122,7 @@
     function foo2 () {
       return {
         name: 'foo'
-      }
+      };
     }
 
     alert(JSON.stringify(foo2())); // {"name":"foo"}
