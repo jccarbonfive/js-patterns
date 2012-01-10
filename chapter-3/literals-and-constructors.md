@@ -14,7 +14,6 @@
 
     var regexp = /\\/g;
     var regexp = new RegExp("\\\\", 'g');
-    var regexp = /*hello*/; // SyntaxError: unexpected token ;
 
 !SLIDE smaller execute
 
