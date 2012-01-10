@@ -8,7 +8,7 @@
 
 !SLIDE small execute
 
-# Class-based Inheritanceo
+# Class-based Inheritance
 
     @@@ JavaScript
     function Parent() {}
